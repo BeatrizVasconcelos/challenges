@@ -6,16 +6,14 @@ points scored during the season. */
 
 function breakingRecords(scores: number[]): number[] {
     let recordGameScore: number = scores[0];
-    let leastPointsScore: number[] = [];
+    let leastPointsScore: number = scores[0];
     let minPointsCount: number = 0; 
     let maxPointsCount: number = 0; 
     
     for (let i = 1; i < scores.length; i++) {
-        if (scores[i] < scores[0]) {
-            if (!leastPointsScore.includes(scores[i])) {
-                leastPointsScore.push(scores[i]);
-                minPointsCount++;
-            }
+        if (scores[i] < leastPointsScore) {
+            leastPointsScore = scores[i];
+            minPointsCount++;
         }
         
         if (scores[i] > recordGameScore) {
